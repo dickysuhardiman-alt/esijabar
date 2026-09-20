@@ -1,0 +1,509 @@
+/* =============================================================================
+   IMPORT FONT ANTON (Google Fonts) - HARUS DI PALING ATAS
+   ============================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* ESI Jawa Barat Design System */
+@import "tailwindcss";
+
+/* =============================================================================
+   TAILWIND CSS v4 THEME CONFIGURATION
+   ============================================================================= */
+@theme {
+  /* Colors */
+  --color-esi-red: #E30613;
+  --color-esi-navy: #1E2B60;
+  --color-esi-gold: #C5922C;
+  --color-esi-silver-light: #D1D3D4;
+  --color-esi-silver-dark: #7D7E80;
+  --color-esi-white: #FFFFFF;
+  --color-esi-off-white: #F8F9FA;
+  --color-esi-charcoal: #2A2A2A;
+
+  /* Font Families */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-anton: 'Anton', sans-serif;
+}
+
+/* =============================================================================
+   CSS VARIABLES FALLBACK & SEMANTIC TOKENS
+   ============================================================================= */
+:root {
+  --esi-red: #E30613;
+  --esi-navy: #1E2B60;
+  --esi-gold: #C5922C;
+  --esi-silver-light: #D1D3D4;
+  --esi-silver-dark: #7D7E80;
+  --esi-white: #FFFFFF;
+  --esi-off-white: #F8F9FA;
+  --esi-charcoal: #2A2A2A;
+
+  --color-primary: var(--esi-red);
+  --color-secondary: var(--esi-navy);
+  --color-accent: var(--esi-gold);
+  --color-surface: var(--esi-white);
+  --color-surface-alt: var(--esi-off-white);
+  --color-background-dark: var(--esi-charcoal);
+  --color-text-primary: var(--esi-charcoal);
+  --color-text-secondary: var(--esi-silver-dark);
+  --color-text-inverse: var(--esi-white);
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1400px;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--esi-red);
+  color: var(--esi-white);
+}
+
+/* Focus Visible */
+:focus-visible {
+  outline: 2px solid var(--esi-red);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--esi-off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--esi-silver-dark);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--esi-navy);
+}
+
+/* Typography Utilities */
+.heading-display {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.heading-3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.heading-4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Anton Font Utility Class */
+.font-anton {
+  font-family: var(--font-anton);
+}
+
+/* Container */
+.container-esi {
+  width: 100%;
+  max-width: var(--container-2xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container-esi {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-esi {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+}
+
+/* Badge Styles */
+.badge-esi {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+}
+
+.badge-red {
+  background-color: var(--esi-red);
+  color: var(--esi-white);
+}
+
+.badge-navy {
+  background-color: var(--esi-navy);
+  color: var(--esi-white);
+}
+
+.badge-gold {
+  background-color: var(--esi-gold);
+  color: var(--esi-white);
+}
+
+.badge-outline {
+  border: 1px solid var(--esi-silver-light);
+  color: var(--esi-charcoal);
+}
+
+/* Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--radius-md);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--esi-red);
+  color: var(--esi-white);
+}
+
+.btn-primary:hover {
+  background-color: #c50511;
+}
+
+.btn-secondary {
+  background-color: var(--esi-navy);
+  color: var(--esi-white);
+}
+
+.btn-secondary:hover {
+  background-color: #162048;
+}
+
+.btn-outline {
+  border: 2px solid var(--esi-navy);
+  color: var(--esi-navy);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--esi-navy);
+  color: var(--esi-white);
+}
+
+/* Card Base */
+.card {
+  background-color: var(--esi-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+/* Running Text Marquee Animation (Diperhalus & Diperlambat) */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* =============================================================================
+   CINEMATIC SEQUENCE UTILITIES (Hero → Federation Intro)
+   ============================================================================= */
+
+/* Subtle thin white lines for the FederationIntro black background */
+.lines-bg {
+  background-image: repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.035) 49.9%, rgba(255, 255, 255, 0.035) 50.1%, transparent 100%);
+}
+
+/* Soft atmospheric glow used on the black storytelling background */
+.atmosphere {
+  background: radial-gradient(
+      58% 42% at 50% 34%,
+      rgba(227, 6, 19, 0.07) 0%,
+      transparent 72%
+    ),
+    radial-gradient(
+      78% 52% at 50% 100%,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 82%
+    );
+}
+
+/* Hero scroll cue line */
+@keyframes heroCueDrop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.hero-scroll-cue-line {
+  animation: heroCueDrop 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* FederationIntro: condense the storytelling stack into a single pinned viewport.
+   Applied only via JS (class added after mount when animation is active) so the
+   un-animated / no-JS rendering stays as a readable stacked document. */
+.fed-pin {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* FederationIntro storytelling typography */
+.fed-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-anton);
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--esi-gold);
+}
+
+.fed-headline {
+  font-family: var(--font-anton);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  font-size: clamp(2.5rem, 7vw, 5.25rem);
+  color: var(--esi-white);
+}
+
+.fed-copy {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 34rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .fed-copy {
+    font-size: 1.125rem;
+  }
+}
+
+.fed-meta {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.fed-ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-anton);
+  font-size: clamp(16rem, 34vw, 34rem);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =============================================================================
+   EDITORIAL LIGHT CANVAS — LatestNews → FeaturedAchievements continuity
+   White surface + very subtle ESI red atmosphere + thin modern grid lines.
+   Shared by both sections so the background reads as one continuous canvas.
+   ============================================================================= */
+.canvas-light {
+  position: relative;
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(
+      1200px 640px at 88% -6%,
+      rgba(227, 6, 19, 0.055) 0%,
+      rgba(227, 6, 19, 0) 60%,
+      rgba(227, 6, 19, 0) 100%
+    ),
+    radial-gradient(
+      1040px 560px at 4% 112%,
+      rgba(227, 6, 19, 0.045) 0%,
+      rgba(227, 6, 19, 0) 58%,
+      rgba(227, 6, 19, 0) 100%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(42, 42, 42, 0.04) 0px,
+      rgba(42, 42, 42, 0.04) 1px,
+      transparent 1px,
+      transparent 96px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(42, 42, 42, 0.032) 49.93%,
+      rgba(42, 42, 42, 0.032) 50.07%,
+      transparent 100%
+    );
+}
+
+/* Section berikutnya naik dari bawah dan menutupi section yang sedang di-pin
+   selama 100vh terakhir pin. Hanya aktif saat animasi berjalan
+   (bukan reduced-motion / no-JS) agar dokumen statis tetap bersih. */
+.fed-cover {
+  position: relative;
+  z-index: 10;
+  margin-top: -100vh;
+}
+
+/* Sports Broadcast Number Style */
+.broadcast-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 1;
+  color: var(--esi-gold);
+  letter-spacing: -0.04em;
+}
+
+/* Gold Accent Line */
+.gold-line {
+  width: 60px;
+  height: 4px;
+  background-color: var(--esi-gold);
+}
+
+/* Red Accent */
+.red-accent {
+  color: var(--esi-red);
+}
+
+/* Navy Background */
+.navy-bg {
+  background-color: var(--esi-navy);
+  color: var(--esi-white);
+}
